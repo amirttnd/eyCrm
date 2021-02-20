@@ -15,5 +15,6 @@
         <module>security</module>
         <module>oDataExtraction</module>
         <module>application</module>
+        <module>common</module>
     </modules>
 </project>
