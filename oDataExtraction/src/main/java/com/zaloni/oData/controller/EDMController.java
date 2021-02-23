@@ -35,8 +35,9 @@ public class EDMController {
         OData odata = OData.newInstance();
         ServiceMetadata edm = odata.createServiceMetadata(edmProvider, new ArrayList<>());
         ODataHttpHandler handler = odata.createHandler(edm);
-        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         handler.register(enityCollectionProcessor);
+        System.out.println("token: " + request.getHeader("token"));
+        System.out.println("==================================");
         handler.process(new HttpServletRequestWrapper(request) {
             @Override
             public String getServletPath() {
@@ -44,6 +45,4 @@ public class EDMController {
             }
         }, response);
     }
-
-
 }
